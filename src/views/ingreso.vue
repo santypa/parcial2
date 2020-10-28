@@ -45,11 +45,15 @@
               </div>
                
          
-             
+           <div>   
           <div  v-if="error" class="nota p-2 m-2 col-lg-6 aling-center" >
             <samp class="">las credenciales no son coreectas</samp>
           </div> 
-          <button type="submit" class="bg-dark text-white m-2">Registrar</button>
+         
+            
+          </div>
+          
+            <button type="submit" class="row bg-dark text-white m-4">Registrar</button>
       </form>
     </div>
   </container>
