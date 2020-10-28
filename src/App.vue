@@ -5,10 +5,8 @@
   </button>
 
 
-   <a class="navbar-brand" href="#">
-    <a class="navbar-brand" href="/mostrar">EMPRESAS</a>
-    <img src="img/fond.jpg" width="30" height="30" alt="" loading="lazy">
-  </a>
+    
+    <img class="m-2" src="https://unsplash.com/assets/core/logo-black-df2168ed0c378fa5506b1816e75eb379d06cfcd0af01e07a2eb813ae9b5d7405.svg" alt="" style="width:auto; height: auto;">
   
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -88,9 +86,11 @@ import { computed } from 'vue';
 import Verimg from '@/components/verimagen.vue'
 
 
+
 export default {
   
     name: "categorias",
+  
     components: { Verimg },
     data(){
         return{

@@ -3,17 +3,21 @@
 
     <div class="c2 container" id="im"  style="display: block">
        <div class="row">
-       <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3"  v-for="imagenes in imagenes" :key="imagenes.id"> 
+       <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3"  v-for="imagen in imagenes" :key="imagen.id"> 
       
            <div class="card m-1">  
-            <img :src="'http://localhost:1337'+imagenes.img.url" alt="" id="image" class="card-img-top" >
+            <img :src="'http://localhost:1337'+imagen.img.url" alt="" id="image" class="card-img-top" >
               <div class="card-body">  
-                 <p> {{ imagenes.user.username }} </p>
+
+                  <p>{{ imagen.user[0].username }}  </p>
                 <!-- {{ usuario = imagenes.user}} -->
-               
                </div>
             </div>
+
+           
+ 
        </div>
+
        </div>
     </div>
 
