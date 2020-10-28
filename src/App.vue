@@ -3,7 +3,13 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/mostrar">EMPRESAS</a>
+
+
+   <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/mostrar">EMPRESAS</a>
+    <img src="img/fond.jpg" width="30" height="30" alt="" loading="lazy">
+  </a>
+  
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
    
@@ -170,5 +176,7 @@ export default {
   background: rgb(155, 235, 235);
   
 }
+
+
 </style>
 

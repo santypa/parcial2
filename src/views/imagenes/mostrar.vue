@@ -8,10 +8,9 @@
            <div class="card m-1">  
             <img :src="'http://localhost:1337'+imagenes.img.url" alt="" id="image" class="card-img-top" >
               <div class="card-body">  
-            <p> {{ imagenes.nombre }} </p>
+                 <p> {{ imagenes.user.username }} </p>
                 <!-- {{ usuario = imagenes.user}} -->
                
-            
                </div>
             </div>
        </div>
@@ -25,27 +24,21 @@ import axios from 'axios';
 
 export default {
 
-
     name: "mostrar",
-    
     data(){
         return{
             imagenes: [],
         }
     },
 
-    
     mounted() {
 
-        fetch ("http://localhost:1337/imagenes")
-        .then((response) => response.json())
-        .then((data) => {   
-           this.imagenes = data;
-          
+        axios.get("http://localhost:1337/imagenes")
+        .then((res) => {
+            this.imagenes = res.data;
         });
          
     },
-    
     
 }
 </script>

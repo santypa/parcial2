@@ -145,7 +145,6 @@ button{
   /* justify-content: center; */
  /*  background-image: url('img/fond.png'); */
   background-size: 300px;
- 
   height: 150px;
   background:url('img/fond.png');
   border-radius: 10px;

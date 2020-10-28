@@ -30,7 +30,7 @@
 <script>
 
 export default {
-  name: 'crear',
+  name: 'agregar',
 
     data() {
     return{
