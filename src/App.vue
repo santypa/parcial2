@@ -90,7 +90,6 @@ import Verimg from '@/components/verimagen.vue'
 export default {
   
     name: "categorias",
-  
     components: { Verimg },
     data(){
         return{
@@ -176,7 +175,6 @@ export default {
   background: rgb(155, 235, 235);
   
 }
-
 
 </style>
 

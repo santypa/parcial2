@@ -9,17 +9,15 @@
            <div class="card m-1">  
             <img :src="'http://localhost:1337'+imagenes.img.url" alt="" id="image" class="card-img-top" >
               <div class="card-body">  
-               <p> {{ imagenes.user }} </p>
-                <!-- {{ usuario = imagenes.user}} -->
+               <p> {{ imagenes.user[0].username }} </p>
                </div>
             </div>
        </div>
        </div>
     </div>
 
-  </div> 
-   
-    
+  </div>
+
 </template>
 
 <script>
@@ -27,9 +25,7 @@
 
 export default {
     name: "Verimg",
-    props: ["imagenes"],
-    
-
+    props: ["imagen"],
     mounted() {
         
     },

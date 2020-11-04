@@ -40,11 +40,12 @@
         </div> <br>
               <div class="d-flex justify-content-center">
                 <div class="b2 row ">
-                   <input type="file" name="url" id="imagen" class="bg-warnig" accept="image/jpeg, image/png, image/jpg, image/gif" value="" >
+                  <input type="file" ref="file" id="imagen" @change="cambiarArchivo" placeholder="" accept="image/jpeg, image/png, image/jpg, image/gif" >
                 </div>
               </div>
                
-         
+          
+
            <div>   
           <div  v-if="error" class="nota p-2 m-2 col-lg-6 aling-center" >
             <samp class="">las credenciales no son coreectas</samp>
@@ -66,10 +67,7 @@
 import axios from 'axios'; 
 
 export default {
-
-
   name: 'ingreso',
-  
     data(){
       return{
         nombre: '',
@@ -78,30 +76,40 @@ export default {
         telefono: '',
         direccion: '',
         empresa: '',
-        imagen: '',
+        imagen: null,
 
         error: false,
       }
     },
 
   methods: {
-    
+
+    cambiarArchivo(e){
+        this.imagen = e.target.files[0]
+        console.log(e.target.files[0])
+    },
+
     guardar(){
-            axios
-             .post("http://localhost:1337/usuarios",
-             {nombre: this.nombre,
-             correo:this.correo,
-             clave:this.clave,
-             telefono:this.telefono,
-             direccion:this.direccion,
-             empresa:this.empresa,
-             imagen:this.imagen,
-           
-             }
+
+      let form = new FormData()
+
+      form.append('data', JSON.stringify({
+          "nombre": this.nombre,
+          "telefono":this.telefono,
+          "direccion":this.direccion,
+          "empresa":this.empresa,
+          "correo":this.correo,
+          "clave":this.clave,
+          
+      })),
+      form.append('files.imagen', this.imagen)
+      
+
+      axios.post("http://localhost:1337/usuarios",form
              ).then((response) => {
-                /* this.$router.push('/') */
                 console.log('se creo un usuario publico')
-            });  
+             });  
+      
 
         axios.post("http://localhost:1337/auth/local/register",{
              username: this.nombre,
@@ -109,13 +117,13 @@ export default {
 	           password: this.clave
         }
         ).then((response) => {  
-                /* console.log('se creo un admin') */
                 this.$router.push('/mostrar')
         });  
   }
 
 }
 }
+
 </script>
 
 <style>
