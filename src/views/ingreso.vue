@@ -31,10 +31,7 @@
               <label for="empresa">Nombre Empresa</label> <br>
               <input type="text" placeholder="Nombre E..." v-model="empresa" id="empresa"> 
             </div>
-            <!-- <div class="col col-lg-4 col-xl-3">
-              <label for="imagen">imagen</label> <br>
-              <input type="file"  id="imagen"> 
-            </div> -->
+   
 
 
         </div> <br>
@@ -111,13 +108,13 @@ export default {
              });  
       
 
-        axios.post("http://localhost:1337/auth/local/register",{
-             username: this.nombre,
-	           email: this.correo,
-	           password: this.clave
+      axios.post("http://localhost:1337/auth/local/register",{
+             "username": this.nombre,
+	           "email": this.correo,
+	           "password": this.clave
         }
         ).then((response) => {  
-                this.$router.push('/mostrar')
+                this.$router.push('/')
         });  
   }
 

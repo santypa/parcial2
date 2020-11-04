@@ -5,17 +5,12 @@ import ingreso from '@/views/ingreso.vue';
 import mostrar from '@/views/imagenes/mostrar.vue'
 import inicio from '@/views/inicio.vue'
 import productos from '@/views/imagenes/misproductos'
-import imagenes from '@/views/imagenes/verimagenes'
 import agregar from '@/views/imagenes/agregar.vue'
 
 const routes = [
  
 
-  {
-    path:'/imagenes',
-   name: 'imagenes',
-   component: imagenes
-  },
+  
   {
     path:'/productos',
    name: 'productos',

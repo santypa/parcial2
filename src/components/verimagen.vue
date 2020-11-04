@@ -21,13 +21,24 @@
 </template>
 
 <script>
-
+import axios from 'axios'; 
 
 export default {
     name: "Verimg",
     props: ["imagen"],
+     data(){
+        return{
+            imagenes: [],
+        }
+    },
+
     mounted() {
-        
+
+        axios.get("http://localhost:1337/imagenes")
+        .then((res) => {
+            this.imagenes = res.data;
+        });
+         
     },
     
 };

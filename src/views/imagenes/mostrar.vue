@@ -1,4 +1,5 @@
 <template>
+
  <div class="c1 container p-3 mt-3 ">
 
     <div class="c2 container" id="im"  style="display: block">
@@ -9,13 +10,11 @@
             <img :src="'http://localhost:1337'+imagen.img.url" alt="" id="image" class="card-img-top" >
               <div class="card-body">  
 
-                  <p>{{ imagen.user[0].username }}  </p>
-                <!-- {{ usuario = imagenes.user}} -->
+<!--                   <p>{{ imagen.user[0].username}}  </p> -->
+
                </div>
             </div>
 
-           
- 
        </div>
 
        </div>
@@ -27,7 +26,6 @@
 import axios from 'axios'; 
 
 export default {
-
     name: "mostrar",
     data(){
         return{

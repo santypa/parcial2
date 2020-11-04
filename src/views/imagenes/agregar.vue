@@ -14,35 +14,34 @@
            
            <h5>Cateoria del articulo</h5>
           <!-- <div class="row">   --> 
-              <div id="checkboxes">
-                  
-                  <input type="checkbox" v-model="hotel" value="blog.categories" >
+            <div id="add-blog">
+              <form>
+                <div id="checkboxes">
+                  <input type="checkbox" v-model="hotel" value=1 >
                   <label for=""> hotel</label><br>
-                  <input type="checkbox" v-model="restaurante" value="blog.categories" >
+                  <input type="checkbox" v-model="restaurante" value=2 >
                   <label for=""> restaurante</label><br>
-                  <input type="checkbox" v-model="bares" value="blog.categories" >
+                  <input type="checkbox" v-model="bares" value=3 >
                   <label for=""> bares </label><br>
-                  <input type="checkbox" v-model="heladeria" value="blog.categories" >
+                  <input type="checkbox" v-model="heladeria" value=4 >
                   <label for=""> heladeria</label><br>
-                  <input type="checkbox" v-model="ropa" value="blog.categories" >
+                  <input type="checkbox" v-model="ropa" value=5 >
                   <label for=""> ropa</label>
               </div>
+              </form>
+              
+            </div>
+              
          <!--  </div> -->
           <input type="button" @click="guardar" class="bt m-4 p-1 border-dark" value="Guardar Imagen"> <br>
 
 
     </div>
-        <div id="preview"> 
-          <p>Blog Categorias</p>
-          <ul>
-            <li v-for="categori in blog.categories" :key="categori" >{{categori}}</li>
-          </ul>
-        </div>
+        
 </template>
 
 <script>
 import axios from 'axios';
-import { vModelCheckbox } from 'vue';
 
 export default {
   name: 'agregar',
@@ -63,9 +62,7 @@ export default {
     },
   methods: {
 
-          ver(){
-
-          },
+          
 
           traerCateg(){
             axios.get("http://localhost:1337/categorias")

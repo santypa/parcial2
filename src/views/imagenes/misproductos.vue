@@ -12,8 +12,8 @@
                 <p> {{ imagenes.categ}} </p>
                 <!-- {{ usuario = imagenes.user}} -->
                
-               <button class="bg-dark text-white" @click="eliminar(imagenes.id)" > Eliminar  </button>
-            <!--  <a style="margin-left: 10px" href="#" @click="eliminar(imagenes.id)">Eliminar</a> -->
+               <input type="submit" class="bg-dark text-white" @click="eliminar(imagenes.id)"  value="Eliminar">
+           
 
                </div>
                
@@ -62,11 +62,13 @@ export default {
 
       eliminar(id){
             axios.delete("http://localhost:1337/imagenes/"+ id, {
-               /*  headers: {
-                    'Authorization': 'Bearer' + localStorage.getItem('token') 
-                } */
+                headers: {
+                    Authorization: "Bearer "  + localStorage.getItem('token') 
+                } 
             }),then((response)=>{
                 this.imagenes =  response.data
+                this.push('/productos') 
+               
             });
         }
     }

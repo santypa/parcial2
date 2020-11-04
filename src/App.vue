@@ -4,23 +4,18 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-
-    
-    <img class="m-2" src="https://unsplash.com/assets/core/logo-black-df2168ed0c378fa5506b1816e75eb379d06cfcd0af01e07a2eb813ae9b5d7405.svg" alt="" style="width:auto; height: auto;">
-  
-
+   <img class="m-2" src="https://unsplash.com/assets/core/logo-black-df2168ed0c378fa5506b1816e75eb379d06cfcd0af01e07a2eb813ae9b5d7405.svg" alt="" style="width:auto; height: auto;">
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
    
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <t v-for="categ in categorias" :key="categ.id" >
             <li class="nav-item active">
-                 <a class="btn nav-link" href="/mostrar">{{categ.categ}}<span class="sr-only">(current)</span></a>
+                 <a class="btn nav-link" href="/">{{categ.categ}}<span class="sr-only">(current)</span></a>
             </li>   
       </t>
       <!-- <li class="nav-item active"  style="margin-left: 10px">
           <a class="btn nav-link bg-dark text-white"  href="/registro">Ingresar<span class="sr-only">(current)</span></a>
       </li>  -->
-
 
     <!-- //////////////////////////////////////// block //// -->
       <div class="btn-group" id="ing" style="display: block">
@@ -81,16 +76,16 @@
 <script>
 
 import axios from 'axios'; 
-
+/* 
 import { computed } from 'vue';
-import Verimg from '@/components/verimagen.vue'
+import Verimg from '@/components/verimagen.vue' */
 
 
 
 export default {
   
     name: "categorias",
-    components: { Verimg },
+    /* components: { Verimg }, */
     data(){
         return{
             categorias: [],
@@ -104,11 +99,24 @@ export default {
     },
 
     mounted() {
+      
         this.traerCateg()
+        this.consulta()
     },
 
     methods: {
+      consulta(){
 
+        console.log(localStorage.getItem('token'))
+        if (localStorage.getItem('token')==null) {
+          document.getElementById("ing").style.display="block"
+          document.getElementById("mi").style.display="none"
+        } else {
+          document.getElementById("mi").style.display="block"
+          document.getElementById("ing").style.display="none"
+        }
+          
+      },
        login(){
       this.error=false
       fetch('http://localhost:1337/auth/local',{
@@ -139,20 +147,11 @@ export default {
       });
     },
 
-
-        /* verimagenes(){
-      document.getElementById("im").style.display="block"
-      document.getElementById("v1").style.display="none"
-      document.getElementById("v2").style.display="block"
-         }, */
-
        traerCateg(){
             axios.get("http://localhost:1337/categorias")
             .then((response)=>{
             this.categorias =  response.data 
             console.log(this.categorias)
-            
-           /*  console.log(this.categorias) */
             });
             
         },
